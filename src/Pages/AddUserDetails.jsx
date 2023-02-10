@@ -21,7 +21,7 @@ function AddUserDetails() {
 
   useEffect(()=>{
 
-    if(isError){
+    if(isSuccess){
       toast.error('user added')
     }
     else{
@@ -42,8 +42,9 @@ function AddUserDetails() {
 
   const onSubmit = (e)=>{
     e.preventDefault();
-    console.log(firstName);
-    if(firstName ===''){
+
+    if (firstName.trim().length <= 10) {
+      toast.error('please fill details')
     }
     else{
       const userData = {
