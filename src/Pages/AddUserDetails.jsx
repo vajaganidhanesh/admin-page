@@ -21,8 +21,11 @@ function AddUserDetails() {
 
   useEffect(()=>{
 
-    if(isSuccess){
-      toast.error(message)
+    if(isError){
+      toast.error('user added')
+    }
+    else{
+      toast.success('unable to add')
     }
 
     dispatch(reset())
@@ -39,9 +42,8 @@ function AddUserDetails() {
 
   const onSubmit = (e)=>{
     e.preventDefault();
-    if(firstName === undefined){
-      console.log(firstName)
-      toast.error('please fill the form')
+    console.log(firstName);
+    if(firstName ===''){
     }
     else{
       const userData = {

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getUsers } from "../features/users/userSlience";
+import { toast } from "react-toastify";
+import { getUsers, reset } from "../features/users/userSlience";
 import UserDetails from "./UserDetails";
 
 function Users() {
@@ -10,10 +11,15 @@ function Users() {
     (state) => state.users
   );
   useEffect(() => {
+    if(isSuccess){
+      toast.success('users are fetched successfully')
+    }
     dispatch(getUsers());
 
-    // eslint-disable-next-line
-  }, [message]);
+    dispatch(reset())
+  }, [message,isError]);
+
+
 
   if (isLoading) {
     return <>loading...</>;

@@ -40,7 +40,7 @@ function UserDetails({ users }) {
       toast.success(message);
     }
     // eslint-disable-next-line
-  }, [isLoading, isError, isSuccess]);
+  }, [isLoading]);
 
   function closeModal() {
     setIsOpen(false);
