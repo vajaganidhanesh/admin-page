@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteUser as deleteParticular,updateUser } from "../features/users/userSlience";
-import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 import Modal from "react-modal";
 import { useEffect } from "react";
 
@@ -28,17 +28,13 @@ function UserDetails({ users }) {
 
   const dispatch = useDispatch();
   const {
-    users: userdata,
     isLoading,
-    isError,
-    isSuccess,
-    message,
   } = useSelector((state) => state.users);
 
   useEffect(() => {
-    if (isError === false) {
-      toast.success(message);
-    }
+    // if (isError === false) {
+    //   toast.success(message);
+    // }
     // eslint-disable-next-line
   }, [isLoading]);
 
@@ -148,7 +144,9 @@ const onSubmit = (e) => {
           </div>
         </div>
       </Modal>
+
       <div className='container'>
+     
         <div className='usersDetails'>
           <ul className='detailsContainer'>
             <li className='userData'>
