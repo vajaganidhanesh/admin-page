@@ -82,7 +82,7 @@ function AddUserDetails() {
           />
 
           <input
-            type='text'
+            type='number'
             className='emailInput'
             placeholder='Enter age'
             id='age'
