@@ -7,17 +7,14 @@ import UserDetails from "./UserDetails";
 function Users() {
   const [edit, setEdit] = useState(false);
   const dispatch = useDispatch();
-  const { users, isLoading, isError, isSuccess, message } = useSelector(
-    (state) => state.users
-  );
+  const { users, isLoading, isSuccess } = useSelector((state) => state.users);
   useEffect(() => {
     if (isSuccess) {
       toast.success("users are fetched successfully");
     }
     dispatch(getUsers());
-
-    dispatch(reset());
-  }, [message, isError, isSuccess, dispatch]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   if (isLoading) {
     return <>loading...</>;

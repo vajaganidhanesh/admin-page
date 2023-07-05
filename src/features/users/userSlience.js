@@ -123,7 +123,7 @@ export const authSlice = createSlice({
         }
         console.log(action.payload);
       })
-      .addCase(updateUser.rejected, (state) => {
+      .addCase(updateUser.rejected, (state) => { 
         state.isLoading = false;
         state.isError = true;
         state.message = "unable to deleted";
